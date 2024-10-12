@@ -24,10 +24,19 @@ export const Example1 = {
 };
 
 export const Example2 = {
-  name: '添加数据和事件',
+  name: '添加事件',
   render: (args, { argTypes }) => ({
     props: Object.keys(argTypes),
-    template: '<my-full-calender v-bind="$props"></my-full-calender>',
+    template: '<my-full-calender v-bind="$props" @select="addEvent" ref="calender"></my-full-calender>',
+    methods: {
+      addEvent(e) {
+        this.$refs.calender.addEvent({
+          title: '测试',
+          start: e.start,
+          end: e.end,
+        });
+      },
+    },
   }),
   args: {
     text: 'Hello world',

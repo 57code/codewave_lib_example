@@ -1,5 +1,5 @@
 <template>
-  <FullCalendar :options="calendarOptions" />
+  <FullCalendar ref="calendar" :options="calendarOptions" />
 </template>
 
 <script>
@@ -63,10 +63,10 @@ export default {
             i1.classList.add('iconfont', 'icon-edit')
             i2.classList.add('iconfont', 'icon-delete')
             i1.addEventListener('click', () => {
-              instance.$emit('event-edit', event)
+              instance.$emit('eventEdit', event)
             })
             i2.addEventListener('click', () => {
-              instance.$emit('event-delete', event)
+              instance.$emit('eventDelete', event)
             })
             span.appendChild(i1)
             span.appendChild(i2)
@@ -105,8 +105,12 @@ export default {
       this.$emit('eventClick', arg.event)
     },
     addEvent: function (arg) {
-      this.calendarOptions.events.push(arg)
-    }
+      this.$refs.calendar.getApi().addEvent(arg)
+    },
+    deleteEvent: function (arg) {
+      const api = this.$refs.calendar.getApi()
+      api.getEventById(arg.id).remove()
+    },
   },
 }
 </script>

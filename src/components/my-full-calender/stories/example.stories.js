@@ -17,10 +17,7 @@ export const Example1 = {
   render: (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     template: '<my-full-calender v-bind="$props"></my-full-calender>',
-  }),
-  args: {
-    text: 'Hello world',
-  },
+  })
 };
 
 export const Example2 = {
@@ -37,8 +34,25 @@ export const Example2 = {
         });
       },
     },
-  }),
-  args: {
-    text: 'Hello world',
-  },
+  })
+};
+
+export const Example3 = {
+  name: '删除事件',
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    template: '<my-full-calender v-bind="$props" @select="addEvent" @eventDelete="deleteEvent" ref="calender"></my-full-calender>',
+    methods: {
+      addEvent(e) {
+        this.$refs.calender.addEvent({
+          title: '测试',
+          start: e.start,
+          end: e.end,
+        });
+      },
+      deleteEvent(e) {
+        this.$refs.calender.deleteEvent(e);
+      },
+    },
+  })
 };

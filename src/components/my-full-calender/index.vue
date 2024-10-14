@@ -80,11 +80,15 @@ export default {
             const i2 = document.createElement('i')
             i1.classList.add('iconfont', 'icon-edit')
             i2.classList.add('iconfont', 'icon-delete')
-            i1.addEventListener('click', () => {
-              instance.$emit('EventEdit', event)
+            i1.addEventListener('click', e => {
+              e.stopPropagation()
+              // 触发编辑事件
+              instance.$emit('event-edit', event)
             })
-            i2.addEventListener('click', () => {
-              instance.$emit('eventDelete', event)
+            i2.addEventListener('click', e => {
+              e.stopPropagation()
+              // 触发删除事件
+              instance.$emit('event-delete', event)
             })
             span.appendChild(i1)
             span.appendChild(i2)

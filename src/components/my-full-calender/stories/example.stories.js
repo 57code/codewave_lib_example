@@ -38,26 +38,6 @@ export const Example2 = {
 };
 
 export const Example3 = {
-  name: '删除事件',
-  render: (args, { argTypes }) => ({
-    props: Object.keys(argTypes),
-    template: '<my-full-calender v-bind="$props" @select="addEvent" @eventDelete="deleteEvent" ref="calender"></my-full-calender>',
-    methods: {
-      addEvent(e) {
-        this.$refs.calender.addEvent({
-          title: '测试',
-          start: e.start,
-          end: e.end,
-        });
-      },
-      deleteEvent(e) {
-        this.$refs.calender.deleteEvent(e);
-      },
-    },
-  })
-};
-
-export const Example4 = {
   name: '初始事件数据',
   render: (args, { argTypes }) => ({
     props: Object.keys(argTypes),
@@ -75,6 +55,35 @@ export const Example4 = {
     }
   }),
 };
+
+export const Example4 = {
+  name: '点击/删除事件',
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    template: '<my-full-calender :initialEvents="events" @event-click="clickEvent" @event-delete="deleteEvent" ref="calender"></my-full-calender>',
+    methods: {
+      deleteEvent(e) {
+        this.$refs.calender.deleteEvent(e);
+      },
+      clickEvent(e) {
+        alert('点击事件'+e.title)
+      },
+    },
+    data() {
+      return {
+        events: [
+          {
+            title: '测试',
+            start: '2024-10-14T08:00:00',
+            end: '2024-10-14T09:00:00',
+          },
+        ],
+      }
+    }
+  })
+};
+
+
 
 export const Example5 = {
   name: '使用数据源',

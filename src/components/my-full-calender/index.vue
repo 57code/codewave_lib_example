@@ -81,7 +81,7 @@ export default {
             i1.classList.add('iconfont', 'icon-edit')
             i2.classList.add('iconfont', 'icon-delete')
             i1.addEventListener('click', () => {
-              instance.$emit('eventEdit', event)
+              instance.$emit('EventEdit', event)
             })
             i2.addEventListener('click', () => {
               instance.$emit('eventDelete', event)
@@ -123,7 +123,7 @@ export default {
       this.$emit('select', arg)
     },
     handleEventClick: function (arg) {
-      this.$emit('eventClick', arg.event)
+      this.$emit('event-click', arg.event)
     },
     addEvent: function (arg) {
       this.$refs.calendar.getApi().addEvent(arg)

@@ -7,7 +7,7 @@ namespace extensions.lib_example.viewComponents {
     end: Date;
     startStr: nasl.core.String;
     endStr: nasl.core.String;
-    allDay: boolean;
+    allDay: nasl.core.Boolean;
   }
 
   interface CalendarEvent {
@@ -18,7 +18,7 @@ namespace extensions.lib_example.viewComponents {
     startStr: nasl.core.String;
     endStr: nasl.core.String;
     color: nasl.core.String;
-    allDay: boolean;
+    allDay: nasl.core.Boolean;
   }
 
   @ExtensionComponent({
@@ -48,7 +48,7 @@ namespace extensions.lib_example.viewComponents {
       startStr: nasl.core.String;
       endStr: nasl.core.String;
       color: nasl.core.String;
-      allDay: boolean;
+      allDay: nasl.core.Boolean;
     }) => void;
 
     @Method({
@@ -63,7 +63,7 @@ namespace extensions.lib_example.viewComponents {
       startStr: nasl.core.String;
       endStr: nasl.core.String;
       color: nasl.core.String;
-      allDay: boolean;
+      allDay: nasl.core.Boolean;
     }) => void;
 
     @Method({
@@ -86,7 +86,7 @@ namespace extensions.lib_example.viewComponents {
       startStr: nasl.core.String;
       endStr: nasl.core.String;
       color: nasl.core.String;
-      allDay: boolean;
+      allDay: nasl.core.Boolean;
     }[];
 
     @Prop({
@@ -117,7 +117,7 @@ namespace extensions.lib_example.viewComponents {
       startStr: nasl.core.String;
       endStr: nasl.core.String;
       color: nasl.core.String;
-      allDay: boolean;
+      allDay: nasl.core.Boolean;
     }) => void;
 
     @Event({
@@ -138,7 +138,7 @@ namespace extensions.lib_example.viewComponents {
       startStr: nasl.core.String;
       endStr: nasl.core.String;
       color: nasl.core.String;
-      allDay: boolean;
+      allDay: nasl.core.Boolean;
     }) => void;
 
     @Event({
@@ -153,7 +153,7 @@ namespace extensions.lib_example.viewComponents {
       startStr: nasl.core.String;
       endStr: nasl.core.String;
       color: nasl.core.String;
-      allDay: boolean;
+      allDay: nasl.core.Boolean;
     }) => void;
   }
 }

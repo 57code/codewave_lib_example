@@ -17,8 +17,24 @@ export default {
   components: {
     FullCalendar // make the <FullCalendar> tag available
   },
-  mounted() {
-    instance = this
+  props: {
+    initialEvents: {
+      type: Array,
+      default: () => []
+    },
+    dataSource: {
+      type: [Array, Object, Function]
+    },
+  },
+  watch: {
+    dataSource: {
+      handler() {
+        this.$nextTick(() => {
+          this.loadDataSource();
+        });
+      },
+      immediate: true
+    },
   },
   data() {
     return {
@@ -33,22 +49,24 @@ export default {
         // 定义dayHeaderContent
         dayHeaderDidMount: function (arg) {
           const viewType = arg.view.type;
-          const el = arg.el;
-          const date = arg.date;
-          const weekday = arg.text.substr(-2);
-          const div = document.createElement('div')
-          const p2 = document.createElement('p')
-          p2.innerText = weekday
-          p2.classList.add('weekday')
-          div.appendChild(p2)
-          if (viewType === 'timeGridWeek') {
-            const p1 = document.createElement('p')
-            p1.innerText = date.getDate()
-            p1.classList.add('date')
-            div.appendChild(p1)
+          if (viewType !== 'listMonth') {
+            const el = arg.el;
+            const date = arg.date;
+            const weekday = arg.text.substr(-2);
+            const div = document.createElement('div')
+            const p2 = document.createElement('p')
+            p2.innerText = weekday
+            p2.classList.add('weekday')
+            div.appendChild(p2)
+            if (viewType === 'timeGridWeek') {
+              const p1 = document.createElement('p')
+              p1.innerText = date.getDate()
+              p1.classList.add('date')
+              div.appendChild(p1)
+            }
+            el.innerText = ''
+            el.appendChild(div)
           }
-          el.innerText = ''
-          el.appendChild(div)
         },
         // 添加hover到event时操作按钮
         eventDidMount: function (arg) {
@@ -97,6 +115,9 @@ export default {
       }
     }
   },
+  mounted() {
+    instance = this
+  },
   methods: {
     handleSelect: function (arg) {
       this.$emit('select', arg)
@@ -110,6 +131,32 @@ export default {
     deleteEvent: function (arg) {
       const api = this.$refs.calendar.getApi()
       api.getEventById(arg.id).remove()
+    },
+    normalizeData(data) {
+      // 如果dataSource存在，使用dataSource
+      if (Array.isArray(data)) {
+        return data;
+      }
+      if (typeof data === 'object' && Array.isArray(data.list)) {
+        return data.list;
+      }
+      // 如果没设置dataSource，使用initialEvents
+      if (!this.dataSource && this.initialEvents) {
+        return JSON.parse(JSON.stringify(this.initialEvents))
+      }
+      // 都没有则设置为空数组
+      return [];
+    },
+    async loadDataSource() {
+      if (typeof this.dataSource === 'function') {
+        const data = await this.dataSource({});
+        this.calendarOptions.events = this.normalizeData(data);
+      } else {
+        this.calendarOptions.events = this.normalizeData(this.dataSource);
+      }
+    },
+    async reload() {
+      return this.loadDataSource();
     },
   },
 }

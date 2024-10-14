@@ -56,3 +56,50 @@ export const Example3 = {
     },
   })
 };
+
+export const Example4 = {
+  name: '初始事件数据',
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    template: '<my-full-calender :initialEvents="events" ></my-full-calender>',
+    data() {
+      return {
+        events: [
+          {
+            title: '测试',
+            start: '2024-10-14T08:00:00',
+            end: '2024-10-14T09:00:00',
+          },
+        ],
+      }
+    }
+  }),
+};
+
+export const Example5 = {
+  name: '使用数据源',
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    template: '<my-full-calender :dataSource="events"></my-full-calender>',
+    data() {
+      return {
+        events: [
+          {
+            title: '测试',
+            start: '2024-10-14T08:00:00',
+            end: '2024-10-14T09:00:00',
+          },
+        ]
+      }
+    },
+    mounted () {
+      setTimeout(() => {
+        this.events.push({
+          title: '测试2',
+          start: '2024-10-14T09:00:00',
+          end: '2024-10-14T10:00:00',
+        })
+      }, 1000);
+    },
+  }),
+};

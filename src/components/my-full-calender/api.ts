@@ -3,8 +3,8 @@ namespace extensions.lib_example.viewComponents {
   const { Component, Prop, ViewComponent, Slot, Method, Event, ViewComponentOptions } = nasl.ui;
 
   interface SelectionInfo {
-    start: Date;
-    end: Date;
+    start: nasl.core.Date | nasl.core.DateTime;
+    end: nasl.core.Date | nasl.core.DateTime;
     startStr: nasl.core.String;
     endStr: nasl.core.String;
     allDay: nasl.core.Boolean;
@@ -124,10 +124,16 @@ namespace extensions.lib_example.viewComponents {
       title: '选择日程区间',
       description: '选择日程区间之后触发的事件，可获取起始和结束时间，用于创建新的日程',
     })
-    onSelect: (event: SelectionInfo) => void;
+    onSelect: (event: {
+      start: nasl.core.Date | nasl.core.DateTime;
+      end: nasl.core.Date | nasl.core.DateTime;
+      startStr: nasl.core.String;
+      endStr: nasl.core.String;
+      allDay: nasl.core.Boolean;
+    }) => void;
 
     @Event({
-      title: '修改日程',
+      title: '点击修改日程',
       description: '点击修改日程触发的事件，可用于获取日程信息',
     })
     onEventEdit: (event: {

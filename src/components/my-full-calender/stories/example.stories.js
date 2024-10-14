@@ -83,8 +83,6 @@ export const Example4 = {
   })
 };
 
-
-
 export const Example5 = {
   name: '使用数据源',
   render: (args, { argTypes }) => ({
@@ -94,9 +92,14 @@ export const Example5 = {
       return {
         events: [
           {
-            title: '测试',
+            title: '测试1',
             start: '2024-10-14T08:00:00',
             end: '2024-10-14T09:00:00',
+          },
+          {
+            title: '测试2',
+            start: '2024-10-14T10:00:00',
+            end: '2024-10-14T11:00:00',
           },
         ]
       }

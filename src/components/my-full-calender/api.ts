@@ -2,25 +2,6 @@
 namespace extensions.lib_example.viewComponents {
   const { Component, Prop, ViewComponent, Slot, Method, Event, ViewComponentOptions } = nasl.ui;
 
-  interface SelectionInfo {
-    start: nasl.core.Date | nasl.core.DateTime;
-    end: nasl.core.Date | nasl.core.DateTime;
-    startStr: nasl.core.String;
-    endStr: nasl.core.String;
-    allDay: nasl.core.Boolean;
-  }
-
-  interface CalendarEvent {
-    id: nasl.core.String;
-    title: nasl.core.String;
-    start: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-    end: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-    startStr: nasl.core.String;
-    endStr: nasl.core.String;
-    color: nasl.core.String;
-    allDay: nasl.core.Boolean;
-  }
-
   @ExtensionComponent({
     type: 'pc',
     ideusage: {
@@ -70,7 +51,7 @@ namespace extensions.lib_example.viewComponents {
       title: '重新加载数据',
       description: '重新加载数据'
     })
-    reload(): void { } // 需要提供重新加载数据源的方法
+    reload: () => void 
   }
 
   export class MyFullCalenderOptions<T> extends ViewComponentOptions {
@@ -78,16 +59,7 @@ namespace extensions.lib_example.viewComponents {
       title: '初始日程列表',
       description: '日程列表，形如：[{title: "事件标题", start: "2024-10-14T09:00", end: "2024-10-14T09:00"}]',
     })
-    initialEvents: {
-      id: nasl.core.String;
-      title: nasl.core.String;
-      start: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-      end: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-      startStr: nasl.core.String;
-      endStr: nasl.core.String;
-      color: nasl.core.String;
-      allDay: nasl.core.Boolean;
-    }[];
+    initialEvents: nasl.collection.List<T>;
 
     @Prop({
       group: '数据属性',

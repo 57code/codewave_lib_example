@@ -12,8 +12,11 @@ export { };
  * @returns 返回布尔值
  */
 export async function canIUse(apiName: nasl.core.String): Promise<nasl.core.Boolean> {
-    const res = await pp.canIUse(apiName);
-    return res;
+    try {
+        return await pp.canIUse(apiName);
+    } catch (e) {
+        console.error(e);
+        return false;
+    }
 }
 
-console.log(canIUse("test"));

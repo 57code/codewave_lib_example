@@ -29,7 +29,7 @@ export async function canIUse(apiName: nasl.core.String): Promise<nasl.core.Bool
  * @param durationType api名称
  * @returns 返回布尔值
  */
-export async function showToast(title: nasl.core.String, durationType): Promise<nasl.core.Boolean> {
+export async function showToast(title: nasl.core.String, durationType:1|2): Promise<nasl.core.Boolean> {
     try {
         // 显示一个持续时间较长的 Toast
         return await pp.showToast({ title: 'Hello POPO.', durationType: 2 });

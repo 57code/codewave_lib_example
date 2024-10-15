@@ -9,7 +9,19 @@ export default {
     layout: 'padded',
   },
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {},
+  argTypes: {
+    // Optional argTypes to set on the component
+    height: {
+      type: 'number',
+      control: {
+        type: 'number',
+        min: 100,
+        max: 1000,
+        step: 100,
+      },
+      description: '组件高度',
+    },
+  },
 };
 
 export const Example1 = {
@@ -17,7 +29,11 @@ export const Example1 = {
   render: (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     template: '<my-full-calender v-bind="$props"></my-full-calender>',
-  })
+  }),
+  args: {
+    // Optional props to set on the component
+    height: 600,
+  },
 };
 
 export const Example2 = {

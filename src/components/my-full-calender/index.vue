@@ -25,6 +25,10 @@ export default {
     dataSource: {
       type: [Array, Object, Function]
     },
+    height: {
+      type: [Number, String],
+      default: null
+    },
   },
   watch: {
     dataSource: {
@@ -35,12 +39,19 @@ export default {
       },
       immediate: true
     },
+    height(newVal) {
+      this.$nextTick(() => {
+        this.$refs.calendar.getApi().setOption('height', newVal);
+      });
+    },
+
   },
   data() {
     return {
       calendarOptions: {
         plugins: [timeGridPlugin, dayGridPlugin, listPlugin, interactionPlugin],
         // 初始视图
+        height: this.height,
         initialView: 'timeGridWeek',
         headerToolbar: {
           left: 'today prev title next',

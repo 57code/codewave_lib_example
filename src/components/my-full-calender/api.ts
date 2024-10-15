@@ -38,11 +38,13 @@ namespace extensions.lib_example.viewComponents {
 
   export class MyFullCalenderOptions<T> extends ViewComponentOptions {
     @Prop({
+      group: '主要属性',
       title: '初始日程列表',
       description: '日程列表，形如：[{title: "事件标题", start: "2024-10-14T09:00", end: "2024-10-14T09:00"}]',
     })
     initialEvents: nasl.collection.List<T>;
 
+    // 数据源属性
     @Prop({
       group: '数据属性',
       title: '数据源',
@@ -59,6 +61,15 @@ namespace extensions.lib_example.viewComponents {
     })
     dataSchema: T;
 
+    // 高度属性
+    @Prop({
+      group: '主要属性',
+      title: '高度',
+      description: '组件的高度，可设置为数字，单位为像素，也可以设置为css字符串，如"100px"、"100%"，如果设置为auto, 则高度将根据内容自动调整。',
+      docDescription: '组件的高度，可设置为数字，单位为像素，也可以设置为css字符串，如"100px"、"100%"，如果设置为auto, 则高度将根据内容自动调整。',
+    })
+    height: nasl.core.Integer | nasl.core.String;
+    
     @Event({
       title: '点击日程',
       description: '点击日程触发，可用于获取日程信息',

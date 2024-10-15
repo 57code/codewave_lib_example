@@ -13,6 +13,7 @@ export { };
  */
 export async function canIUse(apiName: nasl.core.String): Promise<nasl.core.Boolean> {
     try {
+        debugger
         return await pp.canIUse(apiName);
     } catch (e) {
         console.error(e);

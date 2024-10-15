@@ -17,41 +17,23 @@ namespace extensions.lib_example.viewComponents {
       super();
     }
 
-    @Method({
-      title: '添加事件',
-      description: '添加事件方法，传递的参数为事件对象，形如：{title: "事件标题", start: new Date(), end: new Date(), startStr: "2023-01-01", endStr: "2023-01-02", color: "#000000", allDay: false}',
-    })
-    addEvent: (event: {
-      id: nasl.core.String;
-      title: nasl.core.String;
-      start: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-      end: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-      startStr: nasl.core.String;
-      endStr: nasl.core.String;
-      color: nasl.core.String;
-      allDay: nasl.core.Boolean;
-    }) => void;
+    // @Method({
+    //   title: '添加事件',
+    //   description: '添加事件方法，传递的参数为事件对象，形如：{title: "事件标题", start: new Date(), end: new Date(), startStr: "2023-01-01", endStr: "2023-01-02", color: "#000000", allDay: false}',
+    // })
+    // addEvent: (event: T) => void;
 
-    @Method({
-      title: '删除事件',
-      description: '删除事件方法，传递的参数为事件对象，形如：{title: "事件标题", start: new Date(), end: new Date(), startStr: "2023-01-01", endStr: "2023-01-02", color: "#000000", allDay: false}',
-    })
-    deleteEvent: (event: {
-      id: nasl.core.String;
-      title: nasl.core.String;
-      start: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-      end: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
-      startStr: nasl.core.String;
-      endStr: nasl.core.String;
-      color: nasl.core.String;
-      allDay: nasl.core.Boolean;
-    }) => void;
+    // @Method({
+    //   title: '删除事件',
+    //   description: '删除事件方法，传递的参数为事件对象，形如：{title: "事件标题", start: new Date(), end: new Date(), startStr: "2023-01-01", endStr: "2023-01-02", color: "#000000", allDay: false}',
+    // })
+    // deleteEvent: (event: T) => void;
 
     @Method({
       title: '重新加载数据',
       description: '重新加载数据'
     })
-    reload: () => void 
+    reload():void {} 
   }
 
   export class MyFullCalenderOptions<T> extends ViewComponentOptions {

@@ -23,7 +23,8 @@ namespace extensions.lib_example.viewComponents {
     @Prop({
       title: '内容',
       description: '输入框内容',
-      group: '主要属性'
+      group: '主要属性',
+      sync: true, // 开启值同步
     })
     text: nasl.core.String = 'Hello, @me';
 

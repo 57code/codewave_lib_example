@@ -1,8 +1,6 @@
 import '@nasl/types';
 import { pp } from "@popo-bridge/web"
 
-export { };
-
 /**
  * @NaslLogic
  * @type both
@@ -40,14 +38,4 @@ export async function showToast(title: nasl.core.String, durationType:nasl.core.
         return false;
     }
 }
-/**
- * @NaslLogic
- * @type both
- * @title 测试pp接口可用性
- * @desc 测试是否可以调用对应的pp接口
- * @returns 返回字符串
- */
-export function test(): nasl.core.String {
-    console.log("test");
-    return 'test'
-}
+

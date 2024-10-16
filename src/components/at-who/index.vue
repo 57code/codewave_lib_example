@@ -18,7 +18,7 @@ export default {
   props: {
     width: {
       type: String,
-      default: '200px'
+      default: '100%'
     },
     height: {
       type: String,
@@ -37,7 +37,7 @@ export default {
     },
     content: {
       type: String,
-      default: 'Hello, @myrtie.green'
+      default: 'Hello, @me'
     }
   }
 }

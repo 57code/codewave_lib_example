@@ -24,7 +24,7 @@ namespace extensions.lib_example.viewComponents {
       description: '输入框内容',
       group: '主要属性'
     })
-    content: nasl.core.String = '';
+    content: nasl.core.String = 'Hello, @me';
 
     // 成员属性
     @Prop({

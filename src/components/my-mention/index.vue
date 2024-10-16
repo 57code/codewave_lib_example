@@ -9,7 +9,12 @@
     @close="onClose"
     @search="onSearch"
   >
-    <textarea :value="text" :style="{ width, height }" class="editor" @input="onInput" />
+    <textarea
+      v-model="value"
+      :style="{ width, height }"
+      class="editor"
+      @input="onInput"
+    />
 
     <template #item-@="{ item }">
       <div class="user">
@@ -33,7 +38,7 @@ export default {
   props: {
     text: {
       type: String,
-      default: "Hello",
+      default: "Hello,World",
     },
     items: {
       type: Array,
@@ -59,19 +64,24 @@ export default {
       default: "100px",
     },
   },
+  data() {
+    return {
+      value: this.text,
+    };
+  },
   methods: {
     mapInsert(item, key) {
       return item.name;
     },
     onInput(e) {
-      this.$emit("update:text", this.text);
+      this.$emit("update:text", this.value);
     },
     onOpen() {
       this.$emit("open");
     },
-    onApply() {
+    onApply(e) {
       this.$emit("apply");
-      this.$emit("update:text", this.text);
+      this.$emit("update:text", this.value);
     },
     onClose() {
       this.$emit("close");

@@ -16,10 +16,14 @@ export const Example1 = {
   name: '基本用法',
   render: (args, { argTypes }) => ({
     props: Object.keys(argTypes),
-    template: '<my-mention v-bind="$props"></my-mention>',
+    data() {
+      return {
+        text: 'Hello World!',
+      }
+    },
+    template: '<div><my-mention v-bind="$props" :text.sync="text"></my-mention><div>{{text}}</div></div>',
   }),
   args: {
-    text: 'Hello world',
     width: '100%',
     height: '200px',
     items: [

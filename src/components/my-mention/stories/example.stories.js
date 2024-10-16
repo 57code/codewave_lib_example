@@ -20,5 +20,24 @@ export const Example1 = {
   }),
   args: {
     text: 'Hello world',
+    width: '100%',
+    height: '200px',
+    items: [
+      {
+        email: "cat@netease.corp.com",
+        name: "Mr Cat",
+        avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+      },
+      {
+        email: "dog@netease.corp.com",
+        name: "Mr Dog",
+        avatar: "https://randomuser.me/api/portraits/men/8.jpg",
+      },
+      {
+        email: "bird@netease.corp.com",
+        name: "Mr Bird",
+        avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+      },
+    ]
   },
 };

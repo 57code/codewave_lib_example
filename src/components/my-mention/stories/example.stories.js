@@ -18,11 +18,13 @@ export const Example1 = {
     props: Object.keys(argTypes),
     data() {
       return {
-        text: 'Hello World!',
+        // key: value
+        mytext: 'Hello World!',
       }
     },
-    template: '<div><my-mention v-bind="$props" :text.sync="text"></my-mention><div>{{text}}</div></div>',
+    template: '<div><my-mention v-bind="$props" :text.sync="mytext"></my-mention><div>{{mytext}}</div></div>',
   }),
+  
   args: {
     width: '100%',
     height: '200px',

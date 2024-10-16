@@ -26,7 +26,7 @@ namespace extensions.lib_example.viewComponents {
       group: '主要属性',
       sync: true, // 开启值同步
     })
-    value: nasl.core.String = 'Hello, @me';
+    text: nasl.core.String = 'Hello, World';
 
     // 成员属性
     @Prop({

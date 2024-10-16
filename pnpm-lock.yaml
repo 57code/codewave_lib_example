@@ -62,6 +62,9 @@ importers:
       dompurify:
         specifier: ^2.0.15
         version: 2.5.7
+      floating-vue:
+        specifier: 1.0.0-beta.19
+        version: 1.0.0-beta.19(vue@2.6.12)
       lodash:
         specifier: ^4.17.5
         version: 4.17.21
@@ -89,6 +92,9 @@ importers:
       vue-cropper:
         specifier: ^0.5.8
         version: 0.5.11
+      vue-mention:
+        specifier: 1.0.0-floating-vue1
+        version: 1.0.0-floating-vue1(floating-vue@1.0.0-beta.19(vue@2.6.12))(vue@2.6.12)
       whatwg-fetch:
         specifier: 3.6.2
         version: 3.6.2
@@ -1152,8 +1158,14 @@ packages:
   '@fal-works/esbuild-plugin-global-externals@2.1.2':
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
 
+  '@floating-ui/core@0.3.1':
+    resolution: {integrity: sha512-ensKY7Ub59u16qsVIFEo2hwTCqZ/r9oZZFh51ivcLGHfUwTn8l1Xzng8RJUe91H/UP8PeqeBronAGx0qmzwk2g==}
+
   '@floating-ui/core@1.6.8':
     resolution: {integrity: sha512-7XJ9cPU+yI2QeLS+FCSlqNFZJq8arvswefkZrYI1yQBbftw6FyrZOxYSh+9S7z7TpeWlRt9zJ5IhM1WIL334jA==}
+
+  '@floating-ui/dom@0.1.10':
+    resolution: {integrity: sha512-4kAVoogvQm2N0XE0G6APQJuCNuErjOfPW8Ux7DFxh8+AfugWflwVJ5LDlHOwrwut7z/30NUvdtHzQ3zSip4EzQ==}
 
   '@floating-ui/dom@1.6.11':
     resolution: {integrity: sha512-qkMCxSR24v2vGkhYDo/UzxfJN3D4syqSjyuTFz6C7XcpU1pASPRieNI0Kj5VP3/503mOfYiGY891ugBX1GlABQ==}
@@ -3575,6 +3587,11 @@ packages:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
 
+  floating-vue@1.0.0-beta.19:
+    resolution: {integrity: sha512-OcM7z5Ua4XAykqolmvPj3l1s+KqUKj6Xz2t66eqjgaWfNBjtuifmxO5+4rRXakIch/Crt8IH+vKdKcR3jOUaoQ==}
+    peerDependencies:
+      vue: ^2.6.10
+
   flow-parser@0.247.1:
     resolution: {integrity: sha512-DHwcm06fWbn2Z6uFD3NaBZ5lMOoABIQ4asrVA80IWvYjjT5WdbghkUOL1wIcbLcagnFTdCZYOlSNnKNp/xnRZQ==}
     engines: {node: '>=0.4.0'}
@@ -5614,6 +5631,17 @@ packages:
     peerDependencies:
       vue: '>=2'
 
+  vue-mention@1.0.0-floating-vue1:
+    resolution: {integrity: sha512-B5ixWvmuwBVU8hGKiqzFLzxzeBtxzgDger1Owpm5W+wPwcuWw8tMdTFab48UbAAkl65+P4pjnR7rB9aQyxyTYA==}
+    peerDependencies:
+      floating-vue: ^1.0.0-beta.3
+      vue: ^2.6.0
+
+  vue-resize@1.0.1:
+    resolution: {integrity: sha512-z5M7lJs0QluJnaoMFTIeGx6dIkYxOwHThlZDeQnWZBizKblb99GSejPnK37ZbNE/rVwDcYcHY+Io+AxdpY952w==}
+    peerDependencies:
+      vue: ^2.6.0
+
   vue-router@3.3.4:
     resolution: {integrity: sha512-SdKRBeoXUjaZ9R/8AyxsdTqkOfMcI5tWxPZOUX5Ie1BTL5rPSZ0O++pbiZCeYeythiZIdLEfkDiQPKIaWk5hDg==}
     peerDependencies:
@@ -6846,9 +6874,15 @@ snapshots:
 
   '@fal-works/esbuild-plugin-global-externals@2.1.2': {}
 
+  '@floating-ui/core@0.3.1': {}
+
   '@floating-ui/core@1.6.8':
     dependencies:
       '@floating-ui/utils': 0.2.8
+
+  '@floating-ui/dom@0.1.10':
+    dependencies:
+      '@floating-ui/core': 0.3.1
 
   '@floating-ui/dom@1.6.11':
     dependencies:
@@ -9852,6 +9886,12 @@ snapshots:
       locate-path: 6.0.0
       path-exists: 4.0.0
 
+  floating-vue@1.0.0-beta.19(vue@2.6.12):
+    dependencies:
+      '@floating-ui/dom': 0.1.10
+      vue: 2.6.12
+      vue-resize: 1.0.1(vue@2.6.12)
+
   flow-parser@0.247.1: {}
 
   for-each@0.3.3:
@@ -11910,6 +11950,17 @@ snapshots:
 
   vue-inbrowser-compiler-independent-utils@4.71.1(vue@2.6.12):
     dependencies:
+      vue: 2.6.12
+
+  vue-mention@1.0.0-floating-vue1(floating-vue@1.0.0-beta.19(vue@2.6.12))(vue@2.6.12):
+    dependencies:
+      floating-vue: 1.0.0-beta.19(vue@2.6.12)
+      textarea-caret: 3.1.0
+      vue: 2.6.12
+
+  vue-resize@1.0.1(vue@2.6.12):
+    dependencies:
+      '@babel/runtime': 7.25.7
       vue: 2.6.12
 
   vue-router@3.3.4(vue@2.6.12):

@@ -50,6 +50,7 @@
     "dayjs": "^1.10.7",
     "decimal.js": "^10.4.2",
     "dompurify": "^2.0.15",
+    "floating-vue": "1.0.0-beta.19",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
     "online-svg-icon-vue2": "^1.2.3",
@@ -59,6 +60,7 @@
     "textarea-caret": "^3.1.0",
     "vue-at": "2.x",
     "vue-cropper": "^0.5.8",
+    "vue-mention": "1.0.0-floating-vue1",
     "whatwg-fetch": "3.6.2",
     "xlsx-js-style": "^1.2.0",
     "yargs": "^16.2.0"

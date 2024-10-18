@@ -64,7 +64,7 @@ export async function navigateToH5(arg: { id: nasl.core.String, currentUrl: nasl
  * @param callback 回调函数，可选参数，用于接收复制结果以及后续的操作
  * @returns 返回布尔值
  */
-export function copyText(text: nasl.core.String, callback?: (success: nasl.core.Boolean) => void): nasl.core.Boolean {
+export async function copyText(text: nasl.core.String, complete: (success: nasl.core.Boolean) => Promise<void>): Promise<nasl.core.Boolean> {
     // 创建一个临时的textarea元素
     const textArea = document.createElement("textarea");
     // 将其设置为不可见
@@ -81,11 +81,11 @@ export function copyText(text: nasl.core.String, callback?: (success: nasl.core.
     try {
         // 执行复制命令
         const success = document.execCommand("copy");
-        callback && callback(success);
+        complete && complete(success);
         return success;
     } catch (err) {
         // 复制失败
-        callback && callback(false);
+        complete && complete(false);
         console.error("复制失败：", err);
         return false;
     } finally {

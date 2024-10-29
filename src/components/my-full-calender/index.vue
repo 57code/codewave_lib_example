@@ -1,5 +1,9 @@
 <template>
-  <FullCalendar ref="calendar" :options="calendarOptions" />
+  <FullCalendar ref="calendar" :options="calendarOptions">
+    <template v-if="$scopedSlots.eventContent" #eventContent="arg">
+      <slot name="eventContent" v-bind="arg"></slot>
+    </template>
+  </FullCalendar>
 </template>
 
 <script>
@@ -44,7 +48,6 @@ export default {
         this.$refs.calendar.getApi().setOption('height', newVal);
       });
     },
-
   },
   data() {
     return {

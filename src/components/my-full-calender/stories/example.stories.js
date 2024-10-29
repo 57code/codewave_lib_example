@@ -36,6 +36,40 @@ export const Example1 = {
   },
 };
 
+export const Example = {
+  name: '使用插槽定义事件展示方式',
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    template: `
+      <my-full-calender :initialEvents="events">
+        <template v-slot:eventContent="{ event }">
+          <div class="event">
+            <div class="event-title">{{ event.title }}</div>
+            <div class="event-time">{{ dateFormat(event.start) }} - {{ dateFormat(event.end) }}</div>
+          </div>
+        </template>
+      </my-full-calender>`,
+    data() {
+      return {
+        events: [
+          {
+            title: '测试事件插槽',
+            start: '2024-10-29T13:00:00',
+            end: '2024-10-29T14:00:00',
+          },
+        ],
+      }
+    },
+    methods: {
+      dateFormat(date) {
+        const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+        const hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+        return hours + ':' + minutes;
+      }
+    },
+  }),
+};
+
 export const Example2 = {
   name: '添加事件',
   render: (args, { argTypes }) => ({

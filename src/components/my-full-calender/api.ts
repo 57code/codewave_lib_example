@@ -69,7 +69,7 @@ namespace extensions.lib_example.viewComponents {
       docDescription: '组件的高度，可设置为数字，单位为像素，也可以设置为css字符串，如"100px"、"100%"，如果设置为auto, 则高度将根据内容自动调整。',
     })
     height: nasl.core.Integer | nasl.core.String;
-    
+
     @Event({
       title: '点击日程',
       description: '点击日程触发，可用于获取日程信息',
@@ -126,5 +126,20 @@ namespace extensions.lib_example.viewComponents {
       color: nasl.core.String;
       allDay: nasl.core.Boolean;
     }) => void;
+
+    @Slot({
+      title: '自定义事件内容展示',
+      description: '自定义事件内容展示',
+    })
+    slotEventContent: (current: {
+      event: {
+        id: nasl.core.String;
+        title: nasl.core.String;
+        start: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
+        end: nasl.core.Date | nasl.core.DateTime | nasl.core.String;
+        startStr: nasl.core.String;
+        endStr: nasl.core.String;
+      }
+    }) => Array<nasl.ui.ViewComponent>;
   }
 }

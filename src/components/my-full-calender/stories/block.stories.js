@@ -16,3 +16,22 @@ export const Default = {
     template: '<my-full-calender></my-full-calender>',
   }),
 };
+
+export const Example4 = {
+  name: '初始事件',
+  render: (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    template: '<my-full-calender :initialEvents="events"></my-full-calender>',
+    data() {
+      return {
+        events: [
+          {
+            title: '测试',
+            start: new Date(),
+            end: new Date(Date.now() + 1000 * 60 * 60),
+          },
+        ],
+      }
+    }
+  })
+};

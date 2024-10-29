@@ -5,7 +5,11 @@ namespace extensions.lib_example.viewComponents {
   @ExtensionComponent({
     type: 'pc',
     ideusage: {
-      idetype: 'element',
+      idetype: 'container',
+      structured: {
+        slot: 'eventContent',
+        empty: true
+      },
     }
   })
   @Component({

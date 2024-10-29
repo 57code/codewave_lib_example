@@ -6,10 +6,7 @@ namespace extensions.lib_example.viewComponents {
     type: 'pc',
     ideusage: {
       idetype: 'container',
-      structured: {
-        slot: 'eventContent',
-        empty: true
-      },
+      structured: true,
     }
   })
   @Component({

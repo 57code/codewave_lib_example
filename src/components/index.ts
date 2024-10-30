@@ -5,6 +5,7 @@ import AtWho from './at-who';
 import MyMention from './my-mention';
 import MyGantt from './my-gantt';
 import MyContainer from './my-container';
+import MyMenu from './my-menu';
 // COMPONENT IMPORTS
 
 export {
@@ -15,5 +16,6 @@ export {
   MyMention,
   MyGantt,
   MyContainer,
+  MyMenu,
 // COMPONENT EXPORTS
 };

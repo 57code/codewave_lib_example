@@ -3,6 +3,9 @@ import path from 'path';
 import { createVuePlugin as vue2 } from '@lcap/vite-plugin-vue2';
 import { createGenScopedName, lcapPlugin } from '@lcap/builder';
 
+import Components from 'unplugin-vue-components/vite';
+import { ElementUiResolver } from 'unplugin-vue-components/resolvers';
+
 // 设置测试运行的时区
 process.env.TZ = 'Asia/Shanghai';
 const kb2Camcel = (name) => name.replace(/(?:^|-)([a-zA-Z0-9])/g, (m, $1) => $1.toUpperCase());
@@ -12,6 +15,9 @@ export default defineConfig(({ command }) => {
   const pkgInfo = require(`${process.cwd()}/package.json`);
   return {
     plugins: [
+      Components({
+        resolvers: [ElementUiResolver()],
+      }),
       vue2({
         jsx: true,
         jsxInclude: [

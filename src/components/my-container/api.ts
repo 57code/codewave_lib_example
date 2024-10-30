@@ -10,15 +10,13 @@ namespace extensions.lib_example.viewComponents {
     }
   })
   @Component({
-    title: '日程管理',
-    description: '日程管理',
+    title: '容器组件',
+    description: '容器组件',
   })
   export class MyContainer extends ViewComponent {
     constructor(options?: Partial<MyContainerOptions>) {
       super();
     }
-
-    
   }
 
   export class MyContainerOptions extends ViewComponentOptions {
@@ -28,5 +26,12 @@ namespace extensions.lib_example.viewComponents {
       description: '默认插槽',
     })
     slotDefault: () => Array<nasl.ui.ViewComponent>;
+
+    @Slot({
+      title: '标题插槽',
+      description: '标题插槽',
+    })
+    slotTitle: () => Array<nasl.ui.ViewComponent>;
+
   }
 }

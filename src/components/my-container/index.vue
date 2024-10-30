@@ -2,21 +2,28 @@
   <div>
     <div :class="$style.container">
       <div :class="$style.header">
-        <slot name="header">
-          <u-text>title</u-text>
-        </slot>
+        <slot name="header"><UText>title</UText></slot>
+        <template v-if="!$slots.header && $env.VUE_APP_DESIGNER">
+          <UText>title</UText>
+        </template>
       </div>
       <div :class="$style.body">
-        <slot>
-          <u-text>content</u-text>
-        </slot>
+        <slot><UText>content</UText></slot>
+        <template v-if="!$slots.default && $env.VUE_APP_DESIGNER">
+          <UText>content</UText>
+        </template>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { Text } from "virtual-lcap:lcap-ui"
+
 export default {
   name: "my-container",
+  components: {
+    UText: Text,
+  },
   props: {
     text: {
       type: String,

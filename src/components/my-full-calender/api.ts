@@ -6,7 +6,7 @@ namespace extensions.lib_example.viewComponents {
     type: 'pc',
     ideusage: {
       idetype: 'container',
-      structured: true,
+      // structured: true,
     }
   })
   @Component({

@@ -4,6 +4,7 @@ import MyFullCalender from './my-full-calender';
 import AtWho from './at-who';
 import MyMention from './my-mention';
 import MyGantt from './my-gantt';
+import MyContainer from './my-container';
 // COMPONENT IMPORTS
 
 export {
@@ -13,5 +14,6 @@ export {
   AtWho,
   MyMention,
   MyGantt,
+  MyContainer,
 // COMPONENT EXPORTS
 };

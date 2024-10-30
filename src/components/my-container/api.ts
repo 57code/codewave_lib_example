@@ -31,7 +31,7 @@ namespace extensions.lib_example.viewComponents {
       title: '标题插槽',
       description: '标题插槽',
     })
-    slotTitle: () => Array<nasl.ui.ViewComponent>;
+    slotHeader: () => Array<nasl.ui.ViewComponent>;
 
   }
 }

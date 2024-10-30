@@ -1,6 +1,7 @@
 <template>
   <FullCalendar ref="calendar" :options="calendarOptions">
-    <template v-if="$scopedSlots.eventContent" #eventContent="arg">
+    <!-- 如果显式传递了eventContent插槽或者在设计器环境下对外暴露一个插槽用于配置事件布局 -->
+    <template v-if="$scopedSlots.eventContent || $env.VUE_APP_DESIGNER"  #eventContent="arg">
       <slot name="eventContent" v-bind="arg"></slot>
     </template>
   </FullCalendar>

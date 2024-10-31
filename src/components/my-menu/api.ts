@@ -100,8 +100,6 @@ namespace extensions.lib_example.viewComponents {
     type: 'both',
     ideusage: {
       idetype: 'container',
-      structured: true,
-      
     }
   })
   @Component({
@@ -118,24 +116,12 @@ namespace extensions.lib_example.viewComponents {
     @Slot({
       title: '标题',
       description: '子菜单的标题',
-      snippets: [
-        {
-          title: '标题',
-          code: '<template #title><i class="el-icon-location"></i><span>导航一</span></template>',
-        },
-      ],
     })
     slotTitle: () => Array<nasl.ui.ViewComponent>
 
     @Slot({
       title: '内容',
       description: '子菜单的内容',
-      snippets: [
-        {
-          title: '菜单项',
-          code: '<my-menu-item>选项1</my-menu-item>',
-        },
-      ],
     })
     slotDefault: () => Array<nasl.ui.ViewComponent>
   }

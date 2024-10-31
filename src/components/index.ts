@@ -5,11 +5,11 @@ import AtWho from './at-who';
 import MyMention from './my-mention';
 import MyGantt from './my-gantt';
 import MyContainer from './my-container';
-import MyMenu from './my-menu';
+import {MyMenu, MyMenuItem, MySubmenu} from './my-menu';
 // COMPONENT IMPORTS
 
 export {
-    MyTestComp,
+  MyTestComp,
   MyUButton,
   MyFullCalender,
   AtWho,
@@ -17,5 +17,7 @@ export {
   MyGantt,
   MyContainer,
   MyMenu,
-// COMPONENT EXPORTS
+  MyMenuItem,
+  MySubmenu,
+  // COMPONENT EXPORTS
 };

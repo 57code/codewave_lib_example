@@ -37,19 +37,15 @@ namespace extensions.lib_example.viewComponents {
           title: '子菜单',
           code: `<my-submenu>
             <template #title>
-              <i class="el-icon-location"></i>
-              <span>导航一</span>
+              <i-ico name="menu"></i-ico>
+              <u-text>导航一</u-text>
             </template>
             <my-menu-item><u-text>选项1</u-text></my-menu-item>
           </my-submenu>`,
         },
-        {
-          title: '菜单分组',
-          code: '<my-menu-item-group><template slot="title">菜单分组</template><my-menu-item>菜单项</my-menu-item></my-menu-item-group>',
-        },
         { 
           title: '菜单项', 
-          code: '<my-menu-item><i class="el-icon-setting"></i><template #title><u-text>菜单项</u-text></template></my-menu-item>' 
+          code: '<my-menu-item><template #title><u-text>菜单项</u-text></template></my-menu-item>' 
         },
       ],
     })

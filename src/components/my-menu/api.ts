@@ -35,15 +35,109 @@ namespace extensions.lib_example.viewComponents {
       snippets: [ // ide 编辑 “+” 点击后的提示，  title提示描述， code 点击后默认添加代码
         {
           title: '子菜单',
-          code: '<el-submenu></el-submenu>',
+          code: `<my-submenu>
+            <template #title>
+              <i class="el-icon-location"></i>
+              <span>导航一</span>
+            </template>
+            <my-menu-item><u-text>选项1</u-text></my-menu-item>
+          </my-submenu>`,
         },
         {
           title: '菜单分组',
-          code: '<el-menu-item-group><template slot="title">菜单分组</template><el-menu-item>菜单项</el-menu-item></el-menu-item-group>',
+          code: '<my-menu-item-group><template slot="title">菜单分组</template><my-menu-item>菜单项</my-menu-item></my-menu-item-group>',
         },
         { 
           title: '菜单项', 
-          code: '<el-menu-item><i class="el-icon-setting"></i><span slot="title">菜单项</span></el-menu-item>' 
+          code: '<my-menu-item><i class="el-icon-setting"></i><template #title><u-text>菜单项</u-text></template></my-menu-item>' 
+        },
+      ],
+    })
+    slotDefault: () => Array<nasl.ui.ViewComponent>
+  }
+
+
+  @ExtensionComponent({
+    type: 'both',
+    ideusage: {
+      idetype: 'container',
+      structured: true
+    }
+  })
+  @Component({
+    title: '子菜单',
+    description: '子菜单可以包含菜单项或其他子菜单',
+  })
+  export class MySubmenu extends ViewComponent {
+    constructor(options?: Partial<MySubmenuOptions>) {
+      super();
+    }
+  }
+
+  export class MySubmenuOptions extends ViewComponentOptions {
+    @Slot({
+      title: '标题',
+      description: '子菜单的标题',
+      snippets: [
+        {
+          title: '标题',
+          code: '<template #title><i class="el-icon-location"></i><span>导航一</span></template>',
+        },
+      ],
+    })
+    slotTitle: () => Array<nasl.ui.ViewComponent>
+
+    @Slot({
+      title: '内容',
+      description: '子菜单的内容',
+      snippets: [
+        {
+          title: '菜单项',
+          code: '<my-menu-item>选项1</my-menu-item>',
+        },
+      ],
+    })
+    slotDefault: () => Array<nasl.ui.ViewComponent>
+  }
+
+  @ExtensionComponent({
+    type: 'both',
+    ideusage: {
+      idetype: 'container',
+      structured: true,
+      
+    }
+  })
+  @Component({
+    title: '菜单项',
+    description: '菜单项可以包含文本、图标或其他元素',
+  })
+  export class MyMenuItem extends ViewComponent {
+    constructor(options?: Partial<MyMenuItemOptions>) {
+      super();
+    }
+  }
+
+  export class MyMenuItemOptions extends ViewComponentOptions {
+    @Slot({
+      title: '标题',
+      description: '子菜单的标题',
+      snippets: [
+        {
+          title: '标题',
+          code: '<template #title><i class="el-icon-location"></i><span>导航一</span></template>',
+        },
+      ],
+    })
+    slotTitle: () => Array<nasl.ui.ViewComponent>
+
+    @Slot({
+      title: '内容',
+      description: '子菜单的内容',
+      snippets: [
+        {
+          title: '菜单项',
+          code: '<my-menu-item>选项1</my-menu-item>',
         },
       ],
     })

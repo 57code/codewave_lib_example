@@ -40,12 +40,12 @@ namespace extensions.lib_example.viewComponents {
               <i-ico name="menu"></i-ico>
               <u-text>导航一</u-text>
             </template>
-            <my-menu-item><u-text>选项1</u-text></my-menu-item>
+            <my-menu-item><u-text>菜单项</u-text></my-menu-item>
           </my-submenu>`,
         },
         { 
           title: '菜单项', 
-          code: '<my-menu-item><template #title><u-text>菜单项</u-text></template></my-menu-item>' 
+          code: '<my-menu-item><u-text>菜单项</u-text></my-menu-item>' 
         },
       ],
     })
@@ -113,12 +113,6 @@ namespace extensions.lib_example.viewComponents {
   }
 
   export class MyMenuItemOptions extends ViewComponentOptions {
-    @Slot({
-      title: '标题',
-      description: '子菜单的标题',
-    })
-    slotTitle: () => Array<nasl.ui.ViewComponent>
-
     @Slot({
       title: '内容',
       description: '子菜单的内容',

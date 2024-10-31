@@ -1,9 +1,6 @@
 <template>
   <el-menu-item :index="index">
     <slot></slot>
-    <template #title>
-      <slot name="title"></slot>
-    </template>
   </el-menu-item>
 </template>
 <script>
